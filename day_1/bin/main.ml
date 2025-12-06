@@ -10,9 +10,9 @@ let calculate strategy prev_pos dial =
 (* Iterates through a file to calculate the code according to the chosen strategy *)
 let rec read_channel ic prev_pos times strategy =
         try
-                let line = input_line ic in
-                let dial = Day1.get_dial line in
-                let new_pos, times_visited_zero = calculate strategy prev_pos dial in
+                let new_pos, times_visited_zero =
+                        input_line ic |> Day1.get_dial |> calculate strategy prev_pos
+                in
                         read_channel ic new_pos (times + times_visited_zero) strategy
         with e ->
                 match e with
