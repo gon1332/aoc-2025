@@ -20,6 +20,6 @@ let () =
                 let work () =
                         Printf.printf "Total output joltage is %Lu\n" @@ read_channel ic Day3.max_joltage;
                         seek_in ic 0;
-                        Printf.printf "Ultimate output joltage is %Lu\n" @@ read_channel ic Day3.ultimate_joltage;
+                        Printf.printf "Ultimate output joltage is %Lu\n" @@ read_channel ic (Day3.ultimate_joltage 12);
                 in
                 Fun.protect ~finally work;
